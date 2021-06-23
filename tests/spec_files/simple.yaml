@@ -1,0 +1,20 @@
+version: 1
+
+steps:
+  step_1:
+    tasks:
+    - git:
+        repo: https://github.com/epam/Indigo.git
+        dest: ../tmp/
+        version: master
+  step_2:
+    depends_on: step_1
+    tasks:
+    - shell:
+        chdir: ../tmp
+        cmd: ls -la
+  step_3:
+    depends_on: step_2
+    tasks:
+    - shell:
+        cmd: rm -rf ../tmp

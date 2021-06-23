@@ -1,0 +1,16 @@
+version: "1"
+
+steps:
+  step_1_a:
+    tasks:
+    - shell: echo "Hello step_1_a"
+  step_1_b:
+    tasks:
+    - shell: sleep 1; ls -la
+      args:
+        chdir: ../
+
+  step_2:
+    depends_on: step_1_a
+    tasks:
+    - shell: echo "Hello step_2"
